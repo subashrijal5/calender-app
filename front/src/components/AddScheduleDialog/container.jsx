@@ -3,6 +3,7 @@ import AddScheduleDialog from "./presentation";
 import {
   addScheduleCloseDialog,
   addScheduleSetValue,
+  addScheduleStartEdit,
 } from "../../store/addSchedule/actions";
 import { asyncSchedulesAddItem } from "../../store/schedules/effects";
 
@@ -15,9 +16,12 @@ const mapDispatchToProps = (dispatch) => ({
   setSchedule: (value) => {
     dispatch(addScheduleSetValue(value));
   },
-  saveSchedule: schedule => {
+  saveSchedule: (schedule) => {
     dispatch(asyncSchedulesAddItem(schedule));
     dispatch(addScheduleCloseDialog());
+  },
+  setIsEditStart: () => {
+    dispatch(addScheduleStartEdit());
   },
 });
 
