@@ -4,7 +4,7 @@ import {
   addScheduleCloseDialog,
   addScheduleSetValue,
 } from "../../store/addSchedule/actions";
-import { schedulesAddItem } from "../../store/schedules/actions";
+import { asyncSchedulesAddItem } from "../../store/schedules/effects";
 
 const mapStateToProps = (state) => ({ schedule: state.addSchedule });
 
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(addScheduleSetValue(value));
   },
   saveSchedule: schedule => {
-    dispatch(schedulesAddItem(schedule));
+    dispatch(asyncSchedulesAddItem(schedule));
     dispatch(addScheduleCloseDialog());
   },
 });
