@@ -9,6 +9,7 @@ import {
   IconButton,
   Grid,
   Typography,
+  Tooltip,
 } from "@material-ui/core";
 import * as styles from "./style.css";
 import {
@@ -43,9 +44,11 @@ const AddScheduleDialog = ({
     <Dialog open={isDialogOpen} onClose={closeDialog} maxWidth="xs" fullWidth>
       <DialogActions>
         <div className={styles.closeButton}>
-          <IconButton onClick={closeDialog} size="small">
-            <Close />
-          </IconButton>
+          <Tooltip title="閉じる" placement="bottom">
+            <IconButton onClick={closeDialog} size="small">
+              <Close />
+            </IconButton>
+          </Tooltip>
         </div>
       </DialogActions>
       <DialogContent>
@@ -127,7 +130,12 @@ const AddScheduleDialog = ({
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button color="primary" disabled={!title} variant="outlined" onClick={saveSchedule}>
+        <Button
+          color="primary"
+          disabled={!title}
+          variant="outlined"
+          onClick={saveSchedule}
+        >
           保存
         </Button>
       </DialogActions>
